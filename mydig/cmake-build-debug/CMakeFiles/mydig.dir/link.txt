@@ -1,0 +1,1 @@
+/usr/bin/gcc -g   CMakeFiles/mydig.dir/main.c.o  -o mydig 
