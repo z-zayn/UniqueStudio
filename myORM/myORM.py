@@ -11,7 +11,7 @@ def stringfield(field_name, size=100, primary_key=False, not_null=False, unique=
     if unique:
         create_sql += "unique "
     if default:
-        create_sql += "default %s " % default
+        create_sql += """default '%s' """ % default
     return field_name, create_sql
 
 
@@ -33,7 +33,7 @@ def bigintfield(field_name, primary_key=False, not_null=False, unique=False, def
     if primary_key:
         create_sql += "primary key "
     if not_null:
-        create_sql += "not nul l"
+        create_sql += "not null"
     if unique:
         create_sql += "unique "
     if default:
@@ -97,7 +97,7 @@ class ModelMetaclass(type):
         mappings = dict()
         defaults = dict()
         primary_key = None
-        creat_table = "create table %s(" % name
+        creat_table = "create table `%s`(" % name
 
         # 判断是否需要保存
         for k, v in attrs.items():
